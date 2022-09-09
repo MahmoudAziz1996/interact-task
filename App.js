@@ -94,18 +94,19 @@ const App = () => {
       )
     );
   };
+
+  const renderListHeader = () => {
+    return (
+      <ListHeader totalAmount={totalAmount} selectedAmount={selectedAmount} />
+    );
+  };
   const keyExtractor = item => item.id;
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.wrapper}>
         <FlatList
           keyExtractor={keyExtractor}
-          ListHeaderComponent={
-            <ListHeader
-              totalAmount={totalAmount}
-              selectedAmount={selectedAmount}
-            />
-          }
+          ListHeaderComponent={renderListHeader}
           ItemSeparatorComponent={<ListSeparator />}
           ListFooterComponent={renderFooter}
           removeClippedSubviews={true}
