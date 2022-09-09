@@ -6,10 +6,12 @@ import {Colors} from '../assets/theme/colors';
 
 const ListHeader = ({totalAmount, selectedAmount}) => {
   return (
-    <View style={styles.container}>
-      <PriceHolder price={totalAmount || 0} type="Total" />
-      <Button title={'Pay'} fullWidth />
-      <PriceHolder price={selectedAmount || 0} />
+    <View style={{overflow: 'hidden'}}>
+      <View style={styles.container}>
+        <PriceHolder price={totalAmount || 0} type="Total" />
+        <Button title={'Pay'} fullWidth />
+        <PriceHolder price={selectedAmount || 0} />
+      </View>
     </View>
   );
 };
@@ -26,7 +28,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: Colors.white,
     justifyContent: 'space-around',
-    marginBottom: 8,
+    backgroundColor: Colors.extraLightGray2,
+    paddingVertical: 8,
+    marginBottom: 12,
     alignItems: 'center',
+    borderColor: Colors.midGray,
+    shadowColor: '#000',
+    shadowOffset: {width: 1, height: 1},
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
+    elevation: 5,
   },
 });

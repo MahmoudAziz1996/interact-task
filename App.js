@@ -111,6 +111,8 @@ const App = () => {
           removeClippedSubviews={true}
           initialNumToRender={10}
           maxToRenderPerBatch={10}
+          stickyHeaderHiddenOnScroll={true}
+          stickyHeaderIndices={[0]}
           data={visibleTransactions ?? []}
           contentContainerStyle={{padding: 12}}
           renderItem={renderRow}
