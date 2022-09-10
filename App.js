@@ -1,8 +1,12 @@
 import React, {useState, useMemo, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, View, FlatList} from 'react-native';
-import TransactionItem from './src/components/TransactionItem';
 import {TransactionsList} from './src/lib/constants/transactions';
-import {ListSeparator, ListHeader, ListFooter} from './src/components';
+import {
+  ListSeparator,
+  ListHeader,
+  ListFooter,
+  TransactionItem,
+} from './src/components';
 import {Colors} from './src/assets/theme/colors';
 
 const App = () => {

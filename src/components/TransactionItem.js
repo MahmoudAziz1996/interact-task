@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, Image, Switch, Alert} from 'react-native';
+import React, {useState, memo} from 'react';
+import {StyleSheet, Text, View, Platform, Switch, Alert} from 'react-native';
 import PropTypes from 'prop-types';
 import {Colors} from '../assets/theme/colors';
 import FastImage from 'react-native-fast-image';
@@ -47,7 +47,9 @@ const TransactionItem = props => {
       <View style={styles.swichContainer}>
         <Switch
           trackColor={{false: Colors.grayShade, true: Colors.Malibu}}
-          style={{transform: [{scaleX: 0.7}, {scaleY: 0.7}]}}
+          style={
+            Platform.OS == 'ios' && {transform: [{scaleX: 0.7}, {scaleY: 0.7}]}
+          }
           thumbColor={isEnabled ? Colors.white : Colors.midGray}
           ios_backgroundColor="#3e3e3e"
           onValueChange={toggleSwitch}
@@ -58,7 +60,8 @@ const TransactionItem = props => {
   );
 };
 
-export default React.memo(TransactionItem);
+const MemoizedTansactionItem = memo(TransactionItem);
+export {MemoizedTansactionItem as TransactionItem};
 
 TransactionItem.propTypes = {
   amount: PropTypes.number.isRequired,
