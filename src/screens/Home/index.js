@@ -104,7 +104,8 @@ const HomeScreen = () => {
       <ListHeader totalAmount={totalAmount} selectedAmount={selectedAmount} />
     );
   };
-  const keyExtractor = item => item.id;
+  const keyExtractor = useCallback(item => item.id, []);
+
   return (
     <SafeAreaView style={styles.flex}>
       <View style={styles.wrapper}>
